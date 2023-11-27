@@ -52,16 +52,17 @@ export const StudentForm: React.FC = () => {
     resolver: yupResolver(validationSchema),
   });
   */
-  const { register, handleSubmit } = useForm<any>();
+  const { register, handleSubmit, control } = useForm<any>();
   const { mutateAsync } = useMutation({ mutationFn: fetchPost });
   async function submitForm(data: any) {
+    console.log(data);
     const response = await mutateAsync(data);
     console.log(response);
     return response;
   }
   return (
     <>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" sx={{ marginBottom: "50px" }}>
         <Typography component="h1" variant="h5" margin="normal">
           Sign in
         </Typography>
@@ -159,16 +160,23 @@ export const StudentForm: React.FC = () => {
           />
           <SelectInput
             data={tecniche}
-            formContext={register("tecniche")}
+            name="tecniche"
             label="Competenze tecniche"
+            control={control}
           />
           <SelectInput
             data={trasversali}
-            formContext={register("trasversali")}
+            name="trasversali"
             label="Competenze trasversali"
+            control={control}
           />
-          <Button variant="contained" fullWidth>
-            Submit
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{ backgroundColor: "#e20600" }}
+          >
+            Invia
           </Button>
         </Box>
       </Container>
