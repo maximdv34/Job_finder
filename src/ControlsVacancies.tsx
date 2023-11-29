@@ -2,6 +2,7 @@ import { Autocomplete, TextField, Typography } from "@mui/material";
 import { IVacancy } from "./types/Vacancy";
 import { Dispatch, SetStateAction, SyntheticEvent } from "react";
 import { fieldsVacancy } from "./constants/fielsVacancy";
+import { tecniche, trasversali } from "./constants/skils";
 interface Props {
   vacancies: IVacancy[];
   queryString: string;
@@ -45,6 +46,36 @@ export const ControlsVacancies: React.FC<Props> = ({
       setQueryString((prev) => prev.replace(/&?sort=[^&]*/, ""));
     }
   };
+  const handleTecnicheChange = (
+    _event: SyntheticEvent<Element, Event>,
+    value: string | null
+  ) => {
+    if (value) {
+      setQueryString((prev) => {
+        const updatedQueryString = prev.replace(/&?tecniche=[^&]*/, "");
+        return updatedQueryString
+          ? `${updatedQueryString}&tecniche=${value}`
+          : `tecniche=${value}`;
+      });
+    } else {
+      setQueryString((prev) => prev.replace(/&?tecniche=[^&]*/, ""));
+    }
+  };
+  const handleTrasversaliChange = (
+    _event: SyntheticEvent<Element, Event>,
+    value: string | null
+  ) => {
+    if (value) {
+      setQueryString((prev) => {
+        const updatedQueryString = prev.replace(/&?trasversali=[^&]*/, "");
+        return updatedQueryString
+          ? `${updatedQueryString}&trasversali=${value}`
+          : `trasversali=${value}`;
+      });
+    } else {
+      setQueryString((prev) => prev.replace(/&?trasversali=[^&]*/, ""));
+    }
+  };
   return (
     <>
       <Typography
@@ -59,7 +90,6 @@ export const ControlsVacancies: React.FC<Props> = ({
         disablePortal
         id="combo-box-demo"
         options={professions}
-        //onChange={(e, v) => setQueryString(v ? `professione=${v}` : "")}
         onChange={handleProfessionChange}
         fullWidth
         renderInput={(params) => <TextField {...params} label="Professione" />}
@@ -68,11 +98,34 @@ export const ControlsVacancies: React.FC<Props> = ({
         disablePortal
         id="combo-box-demo"
         options={fieldsVacancy}
-        //onChange={(e, v) => setQueryString(v ? `sort=${v}` : "")}
         onChange={handleSortChange}
         fullWidth
         renderInput={(params) => (
           <TextField {...params} label="ordinamento del" margin="normal" />
+        )}
+      />
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={tecniche}
+        onChange={handleTecnicheChange}
+        fullWidth
+        renderInput={(params) => (
+          <TextField {...params} label="Competenze tecniche" margin="normal" />
+        )}
+      />
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={trasversali}
+        onChange={handleTrasversaliChange}
+        fullWidth
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Competenze trasversali"
+            margin="normal"
+          />
         )}
       />
     </>
