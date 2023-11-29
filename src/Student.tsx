@@ -1,9 +1,15 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
-import { IVacancy } from "./types/IVacancy";
+import { IStudent } from "./types/IStudent";
 interface Props {
-  vacancy: IVacancy;
+  student: IStudent;
 }
-export const Vacancy: React.FC<Props> = ({ vacancy }) => {
+export const Student: React.FC<Props> = ({ student }) => {
+  const date = new Date(student.dataDiNascita);
+
+  const dataDiNascita =
+    `${date.getDate().toString().padStart(2, "0")}.` +
+    `${(date.getMonth() + 1).toString().padStart(2, "0")}.` +
+    `${date.getFullYear()} `;
   return (
     <>
       <Grid item xs={4}>
@@ -15,40 +21,42 @@ export const Vacancy: React.FC<Props> = ({ vacancy }) => {
               margin="normal"
               textAlign={"center"}
             >
-              {vacancy.nome}
+              {student.nome} {student.cognome}
             </Typography>
-
-            <Typography component="p" variant="h6" margin="normal">
-              {vacancy.professione}
+            <Typography component="div" variant="body1" margin="normal">
+              Data di nascita: {dataDiNascita}
             </Typography>
-            {vacancy.tecniche.length !== 0 && (
+            <Typography component="div" variant="body1" margin="normal">
+              Cita di residenza: {student.cittàDiResidenza}
+            </Typography>
+            {student.tecniche.length !== 0 && (
               <Typography component="div" variant="body1" margin="normal">
                 Competenze tecniche:
                 <ul style={{ margin: "10px 0" }}>
-                  {vacancy.tecniche.map((i) => (
+                  {student.tecniche.map((i) => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
               </Typography>
             )}
-            {vacancy.trasversali.length !== 0 && (
+            {student.trasversali.length !== 0 && (
               <Typography component="div" variant="body1" margin="normal">
                 Competenze trasversali:
                 <ul style={{ margin: "10px 0" }}>
-                  {vacancy.trasversali.map((i) => (
+                  {student.trasversali.map((i) => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
               </Typography>
             )}
             <Typography component="p" variant="body1" margin="normal">
-              Indirizzio: {vacancy.indirizzio}
+              Indirizzio: {student.via}
             </Typography>
             <Typography component="p" variant="body1" margin="normal">
-              Mail: {vacancy.mail}
+              Mail: {student.mail}
             </Typography>
             <Typography component="p" variant="body1" margin="normal">
-              Telefono: {vacancy.telefono}
+              Telefono: {student.telefono}
             </Typography>
           </CardContent>
         </Card>

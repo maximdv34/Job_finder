@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
-import { IVacancy } from "./types/Vacancy";
+import { IVacancy } from "./types/IVacancy";
 import { Vacancy } from "./Vacancy";
 import { ControlsVacancies } from "./ControlsVacancies";
 

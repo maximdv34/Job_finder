@@ -1,20 +1,22 @@
 import { Autocomplete, TextField, Typography } from "@mui/material";
-import { IVacancy } from "./types/IVacancy";
+import { IStudent } from "./types/IStudent";
 import { Dispatch, SetStateAction, SyntheticEvent } from "react";
-import { fieldsVacancy } from "./constants/fieldsVacancy";
+import { fieldsStudent } from "./constants/fieldsStudent";
 import { tecniche, trasversali } from "./constants/skils";
 interface Props {
-  vacancies: IVacancy[];
+  students: IStudent[];
   queryString: string;
   setQueryString: Dispatch<SetStateAction<string>>;
 }
-export const ControlsVacancies: React.FC<Props> = ({
-  vacancies,
+export const ControlsStudents: React.FC<Props> = ({
+  students,
   setQueryString,
 }) => {
+  /*
   const professions = [
-    ...new Set(vacancies.map((vacancy) => vacancy.professione)),
+    ...new Set(vacancies.map((student) => student.professione)),
   ];
+  */
   const handleProfessionChange = (
     _event: SyntheticEvent<Element, Event>,
     value: string | null
@@ -86,6 +88,7 @@ export const ControlsVacancies: React.FC<Props> = ({
       >
         Controllo
       </Typography>
+      {/*
       <Autocomplete
         disablePortal
         id="combo-box-demo"
@@ -94,10 +97,11 @@ export const ControlsVacancies: React.FC<Props> = ({
         fullWidth
         renderInput={(params) => <TextField {...params} label="Professione" />}
       />
+    */}
       <Autocomplete
         disablePortal
         id="combo-box-demo"
-        options={fieldsVacancy}
+        options={fieldsStudent}
         onChange={handleSortChange}
         fullWidth
         renderInput={(params) => (
