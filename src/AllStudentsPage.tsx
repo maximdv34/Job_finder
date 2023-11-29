@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 
-export const AllStudents: React.FC = () => {
+export const AllStudentsPage: React.FC = () => {
   return (
     <>
       <Container maxWidth={false} sx={{ marginBottom: "50px" }}>

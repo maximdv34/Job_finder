@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import { StudentForm } from "./StudentForm";
 import { Header } from "./Header";
 import { VacancyForm } from "./VacancyForm";
-import { AllStudents } from "./AllStudents";
 import { Home } from "./Home";
-import { AllVacancies } from "./AllVacancies";
+import { AllStudentsPage } from "./AllStudentsPage";
+import { AllVacanciesPage } from "./AllVacanciesPage";
 import { CssBaseline } from "@mui/material";
 export const App: React.FC = () => {
   return (
@@ -18,8 +18,8 @@ export const App: React.FC = () => {
           path="/inserimento_offerte_di_lavoro"
           element={<VacancyForm />}
         />
-        <Route path="/tutti_studenti" element={<AllStudents />} />
-        <Route path="/tutti_offerte_di_lavoro" element={<AllVacancies />} />
+        <Route path="/tutti_studenti" element={<AllStudentsPage />} />
+        <Route path="/tutti_offerte_di_lavoro" element={<AllVacanciesPage />} />
       </Routes>
     </>
   );
