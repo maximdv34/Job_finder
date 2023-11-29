@@ -42,8 +42,6 @@ export const SelectInput: React.FC<Props> = ({
                   label={label}
                   placeholder={label}
                   inputRef={ref}
-                  //inputProps={formContext}
-                  // TODO: doesn't work this way
                 />
               )}
             />

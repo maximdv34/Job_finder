@@ -10,7 +10,7 @@ export const AllVacanciesPage: React.FC = () => {
   const [queryString, setQueryString] = useState<string>("");
   const getVacancies = useCallback(async () => {
     const response = await fetch(
-      `http://127.0.0.1:8000/api/vacancies${queryString}`,
+      `http://127.0.0.1:8000/api/vacancies?${queryString}`,
       {
         method: "GET",
         headers: {
@@ -61,6 +61,7 @@ export const AllVacanciesPage: React.FC = () => {
           <Grid item xs={3}>
             <ControlsVacancies
               vacancies={allVacancies}
+              queryString={queryString}
               setQueryString={setQueryString}
             />
           </Grid>
