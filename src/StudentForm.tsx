@@ -1,9 +1,17 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import {
+  Container,
+  Box,
+  Typography,
+  TextField,
+  Button,
+  withStyles,
+} from "@mui/material";
 //import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { SelectInput } from "./SelectInput";
 import { tecniche, trasversali } from "./constants/skils";
+import { Title } from "./Title";
 /*
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -48,9 +56,7 @@ export const StudentForm: React.FC = () => {
   return (
     <>
       <Container maxWidth="sm" sx={{ marginBottom: "50px" }}>
-        <Typography component="h1" variant="h5" margin="normal">
-          Sign in
-        </Typography>
+        <Title text="Sign in" />
         <Box
           sx={{
             display: "flex",
@@ -159,7 +165,13 @@ export const StudentForm: React.FC = () => {
             type="submit"
             variant="contained"
             fullWidth
-            //sx={{ backgroundColor: "#e20600" }}
+            sx={{
+              backgroundColor: "#e20600",
+              ":hover": {
+                bgcolor: "#a90400",
+                color: "white",
+              },
+            }}
           >
             Invia
           </Button>

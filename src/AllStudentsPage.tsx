@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ControlsStudents } from "./ControlsStudents";
 import { Student } from "./Student";
 import { IStudent } from "./types/IStudent";
+import { Title } from "./Title";
 
 export const AllStudentsPage: React.FC = () => {
   const [students, setStudents] = useState<IStudent[]>([]);
@@ -48,15 +49,7 @@ export const AllStudentsPage: React.FC = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ marginBottom: "50px" }}>
-        <Typography
-          component="h1"
-          variant="h3"
-          margin="normal"
-          textAlign={"center"}
-          sx={{ marginBottom: "50px" }}
-        >
-          Offerte di lavoro
-        </Typography>
+        <Title text="Studente" />
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <ControlsStudents

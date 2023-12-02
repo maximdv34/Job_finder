@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { IVacancy } from "./types/IVacancy";
 import { Vacancy } from "./Vacancy";
 import { ControlsVacancies } from "./ControlsVacancies";
+import { Title } from "./Title";
 
 export const AllVacanciesPage: React.FC = () => {
   const [vacancies, setVacancies] = useState<IVacancy[]>([]);
@@ -48,15 +49,7 @@ export const AllVacanciesPage: React.FC = () => {
   return (
     <>
       <Container maxWidth="xl" sx={{ marginBottom: "50px" }}>
-        <Typography
-          component="h1"
-          variant="h3"
-          margin="normal"
-          textAlign={"center"}
-          sx={{ marginBottom: "50px" }}
-        >
-          Offerte di lavoro
-        </Typography>
+        <Title text="Offerte di lavoro" />
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <ControlsVacancies

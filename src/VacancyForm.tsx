@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { SelectInput } from "./SelectInput";
 import { tecniche, trasversali } from "./constants/skils";
+import { Title } from "./Title";
 export const VacancyForm: React.FC = () => {
   async function fetchPost(data: any) {
     return fetch("http://127.0.0.1:8000/api/vacancies", {
@@ -27,9 +28,7 @@ export const VacancyForm: React.FC = () => {
   return (
     <>
       <Container maxWidth="sm" sx={{ marginBottom: "50px" }}>
-        <Typography component="h1" variant="h5" margin="normal">
-          Offerta di lavoro
-        </Typography>
+        <Title text="Offerta di lavoro" />
         <Box
           sx={{
             display: "flex",
@@ -90,7 +89,13 @@ export const VacancyForm: React.FC = () => {
             type="submit"
             variant="contained"
             fullWidth
-            //sx={{ backgroundColor: "#e20600" }}
+            sx={{
+              backgroundColor: "#e20600",
+              ":hover": {
+                bgcolor: "#a90400",
+                color: "white",
+              },
+            }}
           >
             Invia
           </Button>

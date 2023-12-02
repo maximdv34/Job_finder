@@ -86,7 +86,7 @@ export const ControlsStudents: React.FC<Props> = ({
         margin="normal"
         textAlign={"center"}
       >
-        Controllo
+        Filtri
       </Typography>
       {/*
       <Autocomplete
@@ -105,7 +105,7 @@ export const ControlsStudents: React.FC<Props> = ({
         onChange={handleSortChange}
         fullWidth
         renderInput={(params) => (
-          <TextField {...params} label="ordinamento del" margin="normal" />
+          <TextField {...params} label="ordina per" margin="normal" />
         )}
       />
       <Autocomplete

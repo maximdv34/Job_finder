@@ -13,7 +13,7 @@ export const Student: React.FC<Props> = ({ student }) => {
   return (
     <>
       <Grid item xs={4}>
-        <Card variant="outlined" sx={{ height: "500px" }}>
+        <Card variant="outlined" sx={{ height: "460px" }}>
           <CardContent>
             <Typography
               component="h1"

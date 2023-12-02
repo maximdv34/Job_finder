@@ -6,6 +6,7 @@ import { Home } from "./Home";
 import { AllStudentsPage } from "./AllStudentsPage";
 import { AllVacanciesPage } from "./AllVacanciesPage";
 import { CssBaseline } from "@mui/material";
+import { Corses } from "./Corses";
 export const App: React.FC = () => {
   return (
     <>
@@ -20,6 +21,7 @@ export const App: React.FC = () => {
         />
         <Route path="/tutti_studenti" element={<AllStudentsPage />} />
         <Route path="/tutti_offerte_di_lavoro" element={<AllVacanciesPage />} />
+        <Route path="/API" element={<Corses />} />
       </Routes>
     </>
   );
