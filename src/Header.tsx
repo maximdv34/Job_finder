@@ -4,7 +4,6 @@ import {
   Button,
   CssBaseline,
   Grid,
-  Icon,
   IconButton,
   Paper,
   Popover,

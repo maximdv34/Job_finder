@@ -1,11 +1,12 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import { Container, Box, TextField, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { SelectInput } from "./SelectInput";
 import { tecniche, trasversali } from "./constants/skils";
 import { Title } from "./Title";
+import { IVacancy } from "./types/IVacancy";
 export const VacancyForm: React.FC = () => {
-  async function fetchPost(data: any) {
+  async function fetchPost(data: IVacancy) {
     return fetch("http://127.0.0.1:8000/api/vacancies", {
       method: "POST",
       headers: {
@@ -19,7 +20,7 @@ export const VacancyForm: React.FC = () => {
   }
   const { register, handleSubmit, control } = useForm<any>();
   const { mutateAsync } = useMutation({ mutationFn: fetchPost });
-  async function submitForm(data: any) {
+  async function submitForm(data: IVacancy) {
     console.log(data);
     const response = await mutateAsync(data);
     console.log(response);

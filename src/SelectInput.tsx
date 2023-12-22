@@ -2,9 +2,10 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { Control, Controller } from "react-hook-form";
+import { SyntheticEvent } from "react";
 
 interface Props {
-  data: any[];
+  data: string[];
   name: string;
   label: string;
   control: Control;
@@ -19,7 +20,7 @@ export const SelectInput: React.FC<Props> = ({
     <Controller
       name={name}
       control={control}
-      render={({ field, fieldState: { error } }) => {
+      render={({ field }) => {
         const { onChange, value, ref } = field;
         return (
           <Stack spacing={3} width="100%" margin="16px 0 8px 0">
@@ -30,12 +31,15 @@ export const SelectInput: React.FC<Props> = ({
               options={data}
               getOptionLabel={(option) => option}
               filterSelectedOptions
-              onChange={(event: any, newValue: any) => {
+              onChange={(
+                _: SyntheticEvent<Element, Event>,
+                newValue: string[]
+              ) => {
                 onChange(newValue);
               }}
-              value={data.find((option) => {
-                return value === option;
-              })}
+              value={
+                value ? data.filter((option) => value.includes(option)) : []
+              }
               renderInput={(params) => (
                 <TextField
                   {...params}

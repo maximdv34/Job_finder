@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { Title } from "./Title";
 
 export const Home: React.FC = () => {

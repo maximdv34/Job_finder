@@ -1,23 +1,17 @@
-import {
-  Container,
-  Box,
-  Typography,
-  TextField,
-  Button,
-  withStyles,
-} from "@mui/material";
+import { Container, Box, TextField, Button } from "@mui/material";
 //import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { SelectInput } from "./SelectInput";
 import { tecniche, trasversali } from "./constants/skils";
 import { Title } from "./Title";
+import { IStudent } from "./types/IStudent";
 /*
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 */
 export const StudentForm: React.FC = () => {
-  async function fetchPost(data: any) {
+  async function fetchPost(data: IStudent) {
     return fetch("http://127.0.0.1:8000/api/students", {
       method: "POST",
       headers: {
@@ -47,7 +41,7 @@ export const StudentForm: React.FC = () => {
   */
   const { register, handleSubmit, control } = useForm<any>();
   const { mutateAsync } = useMutation({ mutationFn: fetchPost });
-  async function submitForm(data: any) {
+  async function submitForm(data: IStudent) {
     console.log(data);
     const response = await mutateAsync(data);
     console.log(response);
